@@ -6,6 +6,7 @@ import Auth from "./components/Auth/Auth";
 import AuthPage from "./pages/AuthPage";
 import CartPage from "./pages/CartPage";
 import BlogDetailsPage from "./pages/BlogDetailsPage";
+import ProductDetailsPage from "./pages/ProductDetailsPage";
 function App() {
   return (
     <>
@@ -14,7 +15,8 @@ function App() {
       {/* <ContactPage /> */}
       {/* <AuthPage /> */}
       {/* <CartPage /> */}
-      <BlogDetailsPage />
+      {/* <BlogDetailsPage /> */}
+      <ProductDetailsPage />
     </>
   );
 }
