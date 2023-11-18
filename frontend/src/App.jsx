@@ -5,6 +5,7 @@ import ContactPage from "./pages/ContactPage";
 import Auth from "./components/Auth/Auth";
 import AuthPage from "./pages/AuthPage";
 import CartPage from "./pages/CartPage";
+import BlogDetailsPage from "./pages/BlogDetailsPage";
 function App() {
   return (
     <>
@@ -12,7 +13,8 @@ function App() {
       {/* <ShopPage /> */}
       {/* <ContactPage /> */}
       {/* <AuthPage /> */}
-      <CartPage />
+      {/* <CartPage /> */}
+      <BlogDetailsPage />
     </>
   );
 }
