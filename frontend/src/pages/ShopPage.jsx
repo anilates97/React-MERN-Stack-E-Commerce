@@ -7,12 +7,10 @@ import Products from "../components/Products/Products";
 function ShopPage() {
   return (
     <>
-      <Header />
       <Categories />
       <Products />
       <CampaignSingle />
       <Products />
-      <Footer />
     </>
   );
 }

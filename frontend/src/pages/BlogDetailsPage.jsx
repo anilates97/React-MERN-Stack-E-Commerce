@@ -3,13 +3,7 @@ import Footer from "../components/Layout/Footer/Footer";
 import Header from "../components/Layout/Header/Header";
 
 function BlogDetailsPage() {
-  return (
-    <>
-      <Header />
-      <BlogDetails />
-      <Footer />
-    </>
-  );
+  return <BlogDetails />;
 }
 
 export default BlogDetailsPage;

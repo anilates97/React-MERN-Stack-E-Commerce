@@ -3,13 +3,7 @@ import Footer from "../components/Layout/Footer/Footer";
 import Header from "../components/Layout/Header/Header";
 
 function AuthPage() {
-  return (
-    <>
-      <Header />
-      <Auth />
-      <Footer />
-    </>
-  );
+  return <Auth />;
 }
 
 export default AuthPage;

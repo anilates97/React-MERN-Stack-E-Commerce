@@ -5,13 +5,9 @@ import "./BlogDetails.css";
 
 function BlogPage() {
   return (
-    <>
-      <Header />
-      <div className="blog-page">
-        <Blogs />
-      </div>
-      <Footer />
-    </>
+    <div className="blog-page">
+      <Blogs />
+    </div>
   );
 }
 
