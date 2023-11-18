@@ -1,16 +1,13 @@
-import Footer from "./components/Layout/Footer/Footer";
-import Header from "./components/Layout/Header/Header";
-import Policy from "./components/Layout/Policy/Policy";
-import Sliders from "./components/Slider/Sliders";
+import HomePage from "./pages/HomePage";
+import "./App.css";
+import ShopPage from "./pages/ShopPage";
 
 function App() {
   return (
-    <div>
-      <Header />
-      <Sliders />
-      <Policy />
-      <Footer />
-    </div>
+    <>
+      {/* <HomePage /> */}
+      <ShopPage />
+    </>
   );
 }
 
