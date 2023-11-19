@@ -1,17 +1,20 @@
+import { useState } from "react";
 import "./ProductItem.css";
+import { useCart } from "../../context/CartProvider";
 
-function ProductItem() {
+function ProductItem({ product }) {
+  const { addToCart } = useCart();
   return (
     <li className="product-item glide__slide--clone">
       <div className="product-image">
         <a href="#">
-          <img src="img/products/product4/1.png" alt="" className="img1" />
-          <img src="img/products/product4/2.png" alt="" className="img2" />
+          <img src={product.img.singleImage} alt="" className="img1" />
+          <img src={product.img.thumbs[1]} alt="" className="img2" />
         </a>
       </div>
       <div className="product-info">
         <a href="$" className="product-title">
-          Analogue Resin Strap
+          {product.name}
         </a>
         <ul className="product-star">
           <li>
@@ -31,12 +34,16 @@ function ProductItem() {
           </li>
         </ul>
         <div className="product-prices">
-          <strong className="new-price">$108.00</strong>
-          <span className="old-price">$165.00</span>
+          <strong className="new-price">
+            ${product.price.newPrice.toFixed(2)}
+          </strong>
+          <span className="old-price">
+            ${product.price.oldPrice.toFixed(2)}
+          </span>
         </div>
-        <span className="product-discount">-17%</span>
+        <span className="product-discount">%{product.discount}</span>
         <div className="product-links">
-          <button>
+          <button onClick={() => addToCart(product)}>
             <i className="bi bi-basket-fill"></i>
           </button>
           <button>

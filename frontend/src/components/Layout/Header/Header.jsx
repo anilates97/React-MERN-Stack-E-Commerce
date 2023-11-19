@@ -1,6 +1,8 @@
+import { useCart } from "../../../context/CartProvider";
 import "./Header.css";
 
 function Header({ setIsSearchShow }) {
+  const { cartItems } = useCart();
   return (
     <header>
       <div className="global-notification">
@@ -201,7 +203,9 @@ function Header({ setIsSearchShow }) {
                 <div className="header-cart">
                   <a href="cart.html" className="header-cart-link">
                     <i className="bi bi-bag"></i>
-                    <span className="header-cart-count">0</span>
+                    <span className="header-cart-count">
+                      {cartItems.length}
+                    </span>
                   </a>
                 </div>
               </div>

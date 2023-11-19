@@ -14,13 +14,13 @@ function App() {
   return (
     <MainLayout>
       {
-        // <HomePage />
+        <HomePage />
         /* <ShopPage />*/
         /* <ContactPage />*/
         /* <AuthPage />*/
         /* <CartPage />*/
         /*   <BlogDetailsPage />*/
-        <ProductDetailsPage />
+        //<ProductDetailsPage />
       }
     </MainLayout>
   );
