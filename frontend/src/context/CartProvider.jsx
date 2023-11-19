@@ -10,7 +10,10 @@ export default function CartProvider({ children }) {
   );
 
   function addToCart(cartItem) {
-    setCartItems((prevCart) => [...prevCart, cartItem]);
+    setCartItems((prevCart) => [
+      ...prevCart,
+      { ...cartItem, quantity: cartItem.quantity ? cartItem.quantity : 1 },
+    ]);
   }
 
   function removeFromCart(id) {
