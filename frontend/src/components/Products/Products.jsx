@@ -1,7 +1,7 @@
 import ProductItem from "./ProductItem";
 import "./Product.css";
 import { useState } from "react";
-import ProductsData from "../../data.json";
+import productsData from "../../data.json";
 import Slider from "react-slick";
 
 function NextBtn({ onClick }) {
@@ -21,7 +21,7 @@ function PrevBtn({ onClick }) {
 }
 
 function Products() {
-  const [products] = useState(ProductsData);
+  const [products] = useState(productsData);
 
   const sliderSettings = {
     dots: false,

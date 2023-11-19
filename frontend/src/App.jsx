@@ -13,13 +13,15 @@ import Footer from "./components/Layout/Footer/Footer.jsx";
 function App() {
   return (
     <MainLayout>
-      <HomePage />
-      {/* <ShopPage />
-      <ContactPage />
-      <AuthPage />
-      <CartPage />
-      <BlogDetailsPage />
-      <ProductDetailsPage /> */}
+      {
+        // <HomePage />
+        /* <ShopPage />*/
+        /* <ContactPage />*/
+        /* <AuthPage />*/
+        /* <CartPage />*/
+        /*   <BlogDetailsPage />*/
+        <ProductDetailsPage />
+      }
     </MainLayout>
   );
 }
