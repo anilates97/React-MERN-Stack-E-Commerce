@@ -1,6 +1,13 @@
+import { useState } from "react";
 import "./Info.css";
 
+const colorsArr = ["blue", "red", "green", "purple"];
+const sizeArr = ["XS", "S", "M", "L", "XL"];
+
 function Info() {
+  const [activeColor, setActiveColor] = useState("blue");
+  const [activeSize, setActiveSize] = useState("XS");
+
   return (
     <div className="product-info">
       <h1 className="product-title">Ridley High Waist</h1>
@@ -39,26 +46,19 @@ function Info() {
               <span>Color</span>
             </div>
             <div className="colors-wrapper">
-              <div className="color-wrapper">
-                <label className="blue-color">
-                  <input type="radio" name="product-color" />
-                </label>
-              </div>
-              <div className="color-wrapper">
-                <label className="red-color">
-                  <input type="radio" name="product-color" />
-                </label>
-              </div>
-              <div className="color-wrapper active">
-                <label className="green-color">
-                  <input type="radio" name="product-color" />
-                </label>
-              </div>
-              <div className="color-wrapper">
-                <label className="purple-color">
-                  <input type="radio" name="product-color" />
-                </label>
-              </div>
+              {colorsArr.map((color, index) => (
+                <div
+                  className={`color-wrapper ${
+                    activeColor === color ? "active" : ""
+                  }`}
+                  key={index}
+                  onClick={() => setActiveColor(color)}
+                >
+                  <label className={`${color}-color `}>
+                    <input type="radio" name="product-color" />
+                  </label>
+                </div>
+              ))}
             </div>
           </div>
           <div className="values">
@@ -66,11 +66,15 @@ function Info() {
               <span>Size</span>
             </div>
             <div className="values-list">
-              <span className="active">XS</span>
-              <span>S</span>
-              <span>M</span>
-              <span>L</span>
-              <span>XL</span>
+              {sizeArr.map((size, index) => (
+                <span
+                  onClick={() => setActiveSize(size)}
+                  className={`${activeSize === size && "active"}`}
+                  key={index}
+                >
+                  {size}
+                </span>
+              ))}
             </div>
           </div>
           <div className="cart-button">
