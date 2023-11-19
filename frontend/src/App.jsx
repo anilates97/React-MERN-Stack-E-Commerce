@@ -10,19 +10,25 @@ import ProductDetailsPage from "./pages/ProductDetailsPage";
 import MainLayout from "./layouts/MainLayout.jsx";
 import Header from "./components/Layout/Header/Header.jsx";
 import Footer from "./components/Layout/Footer/Footer.jsx";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import BlogPage from "./pages/BlogPage.jsx";
 function App() {
   return (
-    <MainLayout>
-      {
-        //<HomePage />
-        /* <ShopPage />*/
-        /* <ContactPage />*/
-        /* <AuthPage />*/
-        <CartPage />
-        /*   <BlogDetailsPage />*/
-        //<ProductDetailsPage />
-      }
-    </MainLayout>
+    <BrowserRouter>
+      <Routes>
+        <Route element={<MainLayout />}>
+          {/* <Route index element={<Navigate replace to="/" />} /> */}
+          <Route path="/" element={<HomePage />} />
+          <Route path="shop" element={<ShopPage />} />
+          <Route path="blog" element={<BlogPage />} />
+          <Route path="contact" element={<ContactPage />} />
+          <Route path="cart" element={<CartPage />} />
+          <Route path="auth" element={<AuthPage />} />
+          <Route path="product/:id" element={<ProductDetailsPage />} />
+          <Route path="blog/:id" element={<BlogDetailsPage />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 

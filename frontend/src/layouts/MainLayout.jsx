@@ -3,8 +3,9 @@ import Footer from "../components/Layout/Footer/Footer";
 import Header from "../components/Layout/Header/Header";
 import Search from "../components/Modals/Search/Search";
 import Dialog from "../components/Modals/Dialog/Dialog";
+import { Outlet } from "react-router-dom";
 
-function MainLayout({ children }) {
+function MainLayout() {
   const [isSearchShow, setIsSearchShow] = useState(false);
   const [isDialogShow, setIsDialogShow] = useState(false);
 
@@ -22,7 +23,7 @@ function MainLayout({ children }) {
       <Dialog isDialogShow={isDialogShow} setIsDialogShow={setIsDialogShow} />
       <Header setIsSearchShow={setIsSearchShow} />
       <Search isSearchShow={isSearchShow} setIsSearchShow={setIsSearchShow} />
-      {children}
+      <Outlet />
       <Footer />
     </div>
   );

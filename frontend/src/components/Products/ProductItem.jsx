@@ -1,6 +1,6 @@
-import { useState } from "react";
 import "./ProductItem.css";
 import { useCart } from "../../context/CartProvider";
+import { Link } from "react-router-dom";
 
 function ProductItem({ product }) {
   const { addToCart, cartItems } = useCart();
@@ -52,9 +52,9 @@ function ProductItem({ product }) {
           <button>
             <i className="bi bi-heart-fill"></i>
           </button>
-          <a href="#">
+          <Link to={`product/${product.id}`}>
             <i className="bi bi-eye-fill"></i>
-          </a>
+          </Link>
           <a href="#">
             <i className="bi bi-share-fill"></i>
           </a>
