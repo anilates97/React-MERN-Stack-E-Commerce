@@ -13,12 +13,17 @@ export default function CartProvider({ children }) {
     setCartItems((prevCart) => [...prevCart, cartItem]);
   }
 
+  function removeFromCart(id) {
+    const filteredCartItems = cartItems.filter((cart) => cart.id !== id);
+    setCartItems(filteredCartItems);
+  }
+
   useEffect(() => {
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
   }, [cartItems]);
 
   return (
-    <CartContext.Provider value={{ cartItems, addToCart }}>
+    <CartContext.Provider value={{ cartItems, addToCart, removeFromCart }}>
       {children}
     </CartContext.Provider>
   );
@@ -31,4 +36,5 @@ function useCart() {
   return context;
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export { CartProvider, useCart };

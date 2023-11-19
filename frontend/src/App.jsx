@@ -14,11 +14,11 @@ function App() {
   return (
     <MainLayout>
       {
-        <HomePage />
+        //<HomePage />
         /* <ShopPage />*/
         /* <ContactPage />*/
         /* <AuthPage />*/
-        /* <CartPage />*/
+        <CartPage />
         /*   <BlogDetailsPage />*/
         //<ProductDetailsPage />
       }

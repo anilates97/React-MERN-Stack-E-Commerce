@@ -3,7 +3,10 @@ import "./ProductItem.css";
 import { useCart } from "../../context/CartProvider";
 
 function ProductItem({ product }) {
-  const { addToCart } = useCart();
+  const { addToCart, cartItems } = useCart();
+
+  const filteredCart = cartItems.find((cart) => cart.id === product.id);
+
   return (
     <li className="product-item glide__slide--clone">
       <div className="product-image">
@@ -43,7 +46,7 @@ function ProductItem({ product }) {
         </div>
         <span className="product-discount">%{product.discount}</span>
         <div className="product-links">
-          <button onClick={() => addToCart(product)}>
+          <button onClick={() => addToCart(product)} disabled={filteredCart}>
             <i className="bi bi-basket-fill"></i>
           </button>
           <button>

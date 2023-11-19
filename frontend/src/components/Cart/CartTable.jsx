@@ -1,6 +1,8 @@
+import { useCart } from "../../context/CartProvider";
 import CartItem from "./CartItem";
 
 function CartTable() {
+  const { cartItems } = useCart();
   return (
     <table className="shop-table">
       <thead>
@@ -14,7 +16,9 @@ function CartTable() {
         </tr>
       </thead>
       <tbody className="cart-wrapper">
-        <CartItem />
+        {cartItems.map((item) => (
+          <CartItem key={item.id} cartItem={item} />
+        ))}
       </tbody>
     </table>
   );
