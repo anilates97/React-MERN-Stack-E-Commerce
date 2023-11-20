@@ -16,7 +16,7 @@ router.post("/", async (req, res) => {
   }
 });
 
-// Tüm ürünleri getirme (Read - All)
+// Tüm kategoleri getirme (Read - All)
 
 router.get("/", async (req, res) => {
   try {
