@@ -43,7 +43,7 @@ function CategoryPage() {
 
             <Popconfirm
               title="Kategori Sil"
-              description="Kullanıcıyı silmek istediğinizden emin misiniz?"
+              description="Kategoriyi silmek istediğinizden emin misiniz?"
               okText="Yes"
               cancelText="No"
               onConfirm={() => deleteCategory(record._id)}
