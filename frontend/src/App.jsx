@@ -13,7 +13,9 @@ import Footer from "./components/Layout/Footer/Footer.jsx";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import BlogPage from "./pages/BlogPage.jsx";
 import AdminLayout from "./layouts/AdminLayout.jsx";
-import AdminUserPage from "./pages/admin/AdminUserPage.jsx";
+import UserPage from "./pages/Admin/UserPage.jsx";
+import CategoryPage from "./pages/Admin/Categories/CategoryPage.jsx";
+import UpdateCategoryPage from "./pages/Admin/Categories/UpdateCategoryPage.jsx";
 function App() {
   // const isAdmin = window.location.pathname.startsWith("/admin");
 
@@ -35,7 +37,12 @@ function App() {
 
         {/* Admin yönlendirmeleri */}
         <Route path="admin" element={<AdminLayout />}>
-          <Route path="users" element={<AdminUserPage />} />
+          <Route path="users" element={<UserPage />} />
+          <Route path="categories" element={<CategoryPage />} />
+          <Route
+            path="categories/update/:id"
+            element={<UpdateCategoryPage />}
+          />
           {/* Diğer admin sayfaları */}
         </Route>
       </Routes>

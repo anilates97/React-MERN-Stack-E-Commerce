@@ -1,7 +1,7 @@
 import { Button, Popconfirm, Table, message } from "antd";
 import { useCallback, useEffect, useState } from "react";
 
-function AdminUserPage() {
+function UserPage() {
   const apiUrl = import.meta.env.VITE_API_BASE_URL;
   const [dataSource, setDataSource] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -76,7 +76,6 @@ function AdminUserPage() {
   }, [apiUrl]);
 
   const deleteUser = async (userEmail) => {
-    setLoading(true);
     try {
       const response = await fetch(`${apiUrl}/api/users/${userEmail}`, {
         method: "DELETE",
@@ -88,8 +87,6 @@ function AdminUserPage() {
       } else message.error("Silme işlemi başarısız");
     } catch (err) {
       console.log("Silme hatası:", err);
-    } finally {
-      setLoading(false);
     }
   };
 
@@ -107,4 +104,4 @@ function AdminUserPage() {
   );
 }
 
-export default AdminUserPage;
+export default UserPage;
