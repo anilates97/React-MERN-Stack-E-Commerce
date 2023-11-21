@@ -10,6 +10,8 @@ function Register() {
     password: "",
   });
 
+  const apiUrl = import.meta.env.VITE_API_BASE_URL;
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -18,7 +20,7 @@ function Register() {
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(`http://localhost:5000/api/auth/register`, {
+      const response = await fetch(`${apiUrl}/api/auth/register`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -13,13 +13,14 @@ import Footer from "./components/Layout/Footer/Footer.jsx";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import BlogPage from "./pages/BlogPage.jsx";
 import AdminLayout from "./layouts/AdminLayout.jsx";
+import AdminUserPage from "./pages/admin/AdminUserPage.jsx";
 function App() {
-  const isAdmin = window.location.pathname.startsWith("/admin");
+  // const isAdmin = window.location.pathname.startsWith("/admin");
 
   return (
     <BrowserRouter>
       <Routes>
-        <Route element={isAdmin ? <AdminLayout /> : <MainLayout />}>
+        <Route element={<MainLayout />}>
           {/* <Route index element={<Navigate replace to="/" />} /> */}
           <Route path="/" element={<HomePage />} />
           <Route path="shop" element={<ShopPage />} />
@@ -29,7 +30,13 @@ function App() {
           <Route path="auth" element={<AuthPage />} />
           <Route path="product/:id" element={<ProductDetailsPage />} />
           <Route path="blog/:id" element={<BlogDetailsPage />} />
-          <Route path="admin" element={<AdminLayout />} />
+        </Route>
+        {/* <Route path="admin" element={<AdminLayout />} /> */}
+
+        {/* Admin yönlendirmeleri */}
+        <Route path="admin" element={<AdminLayout />}>
+          <Route path="users" element={<AdminUserPage />} />
+          {/* Diğer admin sayfaları */}
         </Route>
       </Routes>
     </BrowserRouter>
