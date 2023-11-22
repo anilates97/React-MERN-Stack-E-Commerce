@@ -1,15 +1,11 @@
 import "./CategoryItem.css";
 
-function CategoryItem() {
+function CategoryItem({ category }) {
   return (
     <li className="category-item">
       <a href="#">
-        <img
-          src="img/categories/categories1.png"
-          alt=""
-          className="category-image"
-        />
-        <span className="category-title">Smartphone</span>
+        <img src={category.img} alt="" className="category-image" />
+        <span className="category-title">{category.name}</span>
       </a>
     </li>
   );
