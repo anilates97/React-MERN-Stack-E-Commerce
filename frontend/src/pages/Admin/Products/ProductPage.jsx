@@ -57,7 +57,7 @@ function ProductPage() {
           <Space>
             <Button
               type="primary"
-              onClick={() => navigate(`/admin/categories/update/${record._id}`)}
+              onClick={() => navigate(`/admin/products/update/${record._id}`)}
             >
               Edit
             </Button>
@@ -67,7 +67,7 @@ function ProductPage() {
               description="Kategoriyi silmek istediğinizden emin misiniz?"
               okText="Yes"
               cancelText="No"
-              onConfirm={() => deleteCategory(record._id)}
+              onConfirm={() => deleteProduct(record._id)}
             >
               <Button type="primary" danger>
                 Delete
@@ -79,15 +79,18 @@ function ProductPage() {
     },
   ];
 
-  const deleteCategory = async (categoryId) => {
+  const deleteProduct = async (productId) => {
     try {
-      const response = await fetch(`${apiUrl}/api/categories/${categoryId}`, {
+      const response = await fetch(`${apiUrl}/api/products/${productId}`, {
         method: "DELETE",
       });
 
       if (response.ok) {
-        message.success("Kategori başarıyla silindi");
+        message.success("Ürün başarıyla silindi");
         //fetchCategory();
+        setDataSource((prevProducts) => {
+          return prevProducts.filter((product) => product._id !== productId);
+        });
       } else message.error("Silme işlemi başarısız");
     } catch (err) {
       console.log("Silme hatası:", err);
