@@ -18,6 +18,7 @@ import CategoryPage from "./pages/Admin/Categories/CategoryPage.jsx";
 import UpdateCategoryPage from "./pages/Admin/Categories/UpdateCategoryPage.jsx";
 import CreateCategoryPage from "./pages/Admin/Categories/CreateCategoryPage.jsx";
 import CreateProductPage from "./pages/Admin/Products/CreateProductPage.jsx";
+import ProductPage from "./pages/Admin/Products/ProductPage.jsx";
 function App() {
   // const isAdmin = window.location.pathname.startsWith("/admin");
 
@@ -47,6 +48,7 @@ function App() {
             element={<UpdateCategoryPage />}
           />
           <Route path="products/create" element={<CreateProductPage />} />
+          <Route path="products" element={<ProductPage />} />
           {/* Diğer admin sayfaları */}
         </Route>
       </Routes>
