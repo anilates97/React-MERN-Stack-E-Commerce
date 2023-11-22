@@ -20,6 +20,9 @@ import CreateCategoryPage from "./pages/Admin/Categories/CreateCategoryPage.jsx"
 import CreateProductPage from "./pages/Admin/Products/CreateProductPage.jsx";
 import ProductPage from "./pages/Admin/Products/ProductPage.jsx";
 import UpdateProductPage from "./pages/Admin/Products/UpdateProductPage.jsx";
+import CouponPage from "./pages/Admin/Coupons/CouponPage.jsx";
+import CreateCouponPage from "./pages/Admin/Coupons/CreateCouponPage.jsx";
+import UpdateCouponPage from "./pages/Admin/Coupons/UpdateCouponPage.jsx";
 function App() {
   // const isAdmin = window.location.pathname.startsWith("/admin");
 
@@ -51,6 +54,9 @@ function App() {
           <Route path="products/create" element={<CreateProductPage />} />
           <Route path="products" element={<ProductPage />} />
           <Route path="products/update/:id" element={<UpdateProductPage />} />
+          <Route path="coupons" element={<CouponPage />} />
+          <Route path="coupons/create" element={<CreateCouponPage />} />
+          <Route path="coupons/update/:id" element={<UpdateCouponPage />} />
           {/* Diğer admin sayfaları */}
         </Route>
       </Routes>
