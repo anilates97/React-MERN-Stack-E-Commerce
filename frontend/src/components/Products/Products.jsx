@@ -1,6 +1,7 @@
 import ProductItem from "./ProductItem";
+import { message } from "antd";
 import "./Product.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import productsData from "../../data.json";
 import Slider from "react-slick";
 
@@ -21,7 +22,26 @@ function PrevBtn({ onClick }) {
 }
 
 function Products() {
-  const [products] = useState(productsData);
+  const [products, setProducts] = useState([]);
+  const apiUrl = import.meta.env.VITE_API_BASE_URL;
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const response = await fetch(`${apiUrl}/api/products`);
+
+        if (response.ok) {
+          const data = await response.json();
+          setProducts(data);
+        } else message.error("Veri getirme işlemi başarısız");
+      } catch (err) {
+        console.log("Veri hatası:", err);
+      }
+    };
+    fetchProducts();
+  }, []);
+
+  console.log("asdas", products);
 
   const sliderSettings = {
     dots: false,

@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const logger = require("morgan");
 const app = express();
+const cors = require("cors");
 const mainRoute = require("./routes/index");
 const port = 5000;
 
@@ -26,6 +27,7 @@ app.listen(5000, () => {
 
 app.use(logger("dev"));
 app.use(express.json());
+app.use(cors());
 
 app.use("/api", mainRoute);
 
