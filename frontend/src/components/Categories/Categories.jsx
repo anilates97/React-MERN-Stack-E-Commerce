@@ -21,7 +21,7 @@ function Categories() {
       }
     };
     fetchCategories();
-  });
+  }, [apiUrl]);
 
   return (
     <section className="categories">
