@@ -20,6 +20,9 @@ import UpdateProductPage from "./pages/Admin/Products/UpdateProductPage.jsx";
 import CouponPage from "./pages/Admin/Coupons/CouponPage.jsx";
 import CreateCouponPage from "./pages/Admin/Coupons/CreateCouponPage.jsx";
 import UpdateCouponPage from "./pages/Admin/Coupons/UpdateCouponPage.jsx";
+import Success from "./pages/Success.jsx";
+import OrderPage from "./pages/Admin/OrderPage.jsx";
+import DashboardPage from "./pages/Admin/DashboardPage.jsx";
 function App() {
   // const isAdmin = window.location.pathname.startsWith("/admin");
 
@@ -36,11 +39,14 @@ function App() {
           <Route path="auth" element={<AuthPage />} />
           <Route path="product/:id" element={<ProductDetailsPage />} />
           <Route path="blog/:id" element={<BlogDetailsPage />} />
+          <Route path="success" element={<Success />} />
         </Route>
+
         {/* <Route path="admin" element={<AdminLayout />} /> */}
 
         {/* Admin yönlendirmeleri */}
         <Route path="admin" element={<AdminLayout />}>
+          <Route index element={<DashboardPage />} />
           <Route path="users" element={<UserPage />} />
           <Route path="categories" element={<CategoryPage />} />
           <Route path="categories/create" element={<CreateCategoryPage />} />
@@ -54,6 +60,8 @@ function App() {
           <Route path="coupons" element={<CouponPage />} />
           <Route path="coupons/create" element={<CreateCouponPage />} />
           <Route path="coupons/update/:id" element={<UpdateCouponPage />} />
+
+          <Route path="orders" element={<OrderPage />} />
           {/* Diğer admin sayfaları */}
         </Route>
       </Routes>

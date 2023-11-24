@@ -8,6 +8,7 @@ const categoryRoute = require("./categories");
 const authRoute = require("./auth");
 const couponRoute = require("./coupons");
 const userRoute = require("./users");
+const paymentRoute = require("./payment");
 
 // Her rotayı ilgili yol altında kullanıyoruz
 
@@ -16,5 +17,6 @@ router.use("/products", productRoute);
 router.use("/auth", authRoute);
 router.use("/coupons", couponRoute);
 router.use("/users", userRoute);
+router.use("/payment", paymentRoute);
 
 module.exports = router;

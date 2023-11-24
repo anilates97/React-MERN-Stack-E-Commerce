@@ -1,10 +1,13 @@
 import { useState } from "react";
 import { useCart } from "../../context/CartProvider";
 import { message } from "antd";
+import { loadStripe } from "@stripe/stripe-js";
 
 function CartTotals() {
   const { cartItems } = useCart();
   const [fastCargoChecked, setFastCargoChecked] = useState(false);
+  const stripePublicKey = import.meta.env.VITE_API_STRIPE_PUBLIC_KEY;
+  const apiUrl = import.meta.env.VITE_API_BASE_URL;
 
   const user = localStorage.getItem("user")
     ? JSON.parse(localStorage.getItem("user"))
@@ -26,7 +29,7 @@ function CartTotals() {
     ? (subTotals + cargoFee).toFixed(2)
     : subTotals.toFixed(2);
 
-  const handlePayment = () => {
+  const handlePayment = async () => {
     if (!user) {
       return message.info("Ödeme yapabilmek için giriş yapmalısınız");
     }
@@ -35,6 +38,24 @@ function CartTotals() {
       user,
       cargoFee: fastCargoChecked ? cargoFee : 0,
     };
+
+    try {
+      const stripe = await loadStripe(stripePublicKey);
+      const res = await fetch(`${apiUrl}/api/payment`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body),
+      });
+
+      if (!res.ok) return message.error("Ödeme işlemi başarısız oldu");
+
+      const session = await res.json();
+      const result = await stripe.redirectToCheckout({ sessionId: session.id });
+
+      if (result.error) throw new Error(result.error.message);
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (
