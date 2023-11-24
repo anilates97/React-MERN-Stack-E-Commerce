@@ -17,7 +17,7 @@ export default function CartProvider({ children }) {
   }
 
   function removeFromCart(id) {
-    const filteredCartItems = cartItems.filter((cart) => cart.id !== id);
+    const filteredCartItems = cartItems.filter((cart) => cart._id !== id);
     setCartItems(filteredCartItems);
   }
 
@@ -26,7 +26,9 @@ export default function CartProvider({ children }) {
   }, [cartItems]);
 
   return (
-    <CartContext.Provider value={{ cartItems, addToCart, removeFromCart }}>
+    <CartContext.Provider
+      value={{ cartItems, addToCart, removeFromCart, setCartItems }}
+    >
       {children}
     </CartContext.Provider>
   );

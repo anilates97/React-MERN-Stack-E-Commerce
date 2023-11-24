@@ -1,9 +1,14 @@
 import { useState } from "react";
 import { useCart } from "../../context/CartProvider";
+import { message } from "antd";
 
 function CartTotals() {
   const { cartItems } = useCart();
   const [fastCargoChecked, setFastCargoChecked] = useState(false);
+
+  const user = localStorage.getItem("user")
+    ? JSON.parse(localStorage.getItem("user"))
+    : null;
 
   const cartItemTotals = cartItems.map((item) => {
     const itemTotal = item.price * item.quantity;
@@ -19,7 +24,18 @@ function CartTotals() {
 
   const cartTotals = fastCargoChecked
     ? (subTotals + cargoFee).toFixed(2)
-    : subTotals;
+    : subTotals.toFixed(2);
+
+  const handlePayment = () => {
+    if (!user) {
+      return message.info("Ödeme yapabilmek için giriş yapmalısınız");
+    }
+    const body = {
+      products: cartItems,
+      user,
+      cargoFee: fastCargoChecked ? cargoFee : 0,
+    };
+  };
 
   return (
     <div className="cart-totals">
@@ -62,7 +78,9 @@ function CartTotals() {
         </tbody>
       </table>
       <div className="checkout">
-        <button className="btn btn-lg">Proceed to checkout</button>
+        <button className="btn btn-lg" onClick={handlePayment}>
+          Proceed to checkout
+        </button>
       </div>
     </div>
   );

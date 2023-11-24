@@ -65,7 +65,7 @@ function Search({ isSearchShow, setIsSearchShow }) {
                 Ürün Ara...
               </b>
             )}
-            {searchResults.length === 0 && (
+            {searchResults?.length === 0 && (
               <a
                 href="#"
                 className="result-item"
